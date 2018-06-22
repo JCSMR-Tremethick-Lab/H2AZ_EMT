@@ -102,7 +102,7 @@ rule computeMatrix_pooled_replicates:
     output:
         matrix_gz = "{assayID}/{runID}/{outdir}/{reference_version}/{application}/computeMatrix/{command}/{duplicates}/{referencePoint}/{sample_group}_{region}_{mode}.matrix.gz"
     wrapper:
-        "file://" + wrapper_dir + "/deepTools/computeMatrix/wrapper.py"
+        "file://" + WRAPPERDIR + "bio/deepTools/computeMatrix/wrapper.py"
 
 rule bam_coverage_pooled_replicates:
     version:

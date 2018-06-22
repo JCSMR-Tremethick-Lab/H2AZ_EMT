@@ -17,7 +17,7 @@ REFVERSION = config["references"]["CanFam3.1"]["version"][0]
 QUAL = config["alignment_quality"]
 home = os.environ['HOME']
 WORKFLOWDIR = config["WORKFLOWDIR"]
-wrapper_dir = home + WORKFLOWDIR + "snakemake-wrappers/bio"
+WRAPPERDIR = home + config["WRAPPERDIR"]
 include_prefix = home + WORKFLOWDIR + "H2AZ_EMT/snakemake/rules/"
 configfile: home + WORKFLOWDIR + "H2AZ_EMT/snakemake/configs/config.json"
 
