@@ -101,8 +101,17 @@ rule computeMatrix_pooled_replicates:
         region = lambda wildcards: home + config["program_parameters"]["deepTools"]["regionFiles"][wildcards.reference_version][wildcards.region]
     output:
         matrix_gz = "{assayID}/{runID}/{outdir}/{reference_version}/{application}/computeMatrix/{command}/{duplicates}/{referencePoint}/{sample_group}_{region}_{mode}.matrix.gz"
-    wrapper:
-        "file://" + WRAPPERDIR + "bio/deepTools/computeMatrix/wrapper.py"
+    shell:
+        """
+            {params.deepTools_dir}/computeMatrix {wildcards.command} \
+                                                 --regionsFileName {input.region} \
+                                                 --scoreFileName {input.file} \
+                                                 --missingDataAsZero \
+                                                 --skipZeros \
+                                                 --numberOfProcessors {threads} \
+                                                 {params.program_parameters} \
+                                                 --outFileName {output.matrix_gz}
+        """
 
 rule bam_coverage_pooled_replicates:
     version:
