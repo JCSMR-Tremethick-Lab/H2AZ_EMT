@@ -1,4 +1,4 @@
-i__author__ = "Sebastian Kurscheid (sebastian.kurscheid@anu.edu.au)"
+__author__ = "Sebastian Kurscheid (sebastian.kurscheid@anu.edu.au)"
 __license__ = "MIT"
 __date__ = "2016-02-27"
 
@@ -21,9 +21,9 @@ For usage, include this in your workflow.
 
 rule cutadapt_pe:
     params:
-        trim_params = config["program_parameters"]["cutadapt"]["trim_params"],
-        raw_data = config["raw_dir"],
-        cutadapt_dir = home + config["cutadapt_dir"]
+        trim_params = "-a AGATCGGAAGAGC -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT --minimum-length=30",
+        raw_data = "fastq",
+        cutadapt_dir = home + "miniconda3/envs/snakemake/bin"
     input:
         read1 = lambda wildcards: wildcards.assayID + "/" + wildcards.runID + "/fastq/" + config["samples"][wildcards.assayID][wildcards.runID][wildcards.sample][0],
         read2 = lambda wildcards: wildcards.assayID + "/" + wildcards.runID + "/fastq/" + config["samples"][wildcards.assayID][wildcards.runID][wildcards.sample][1]

@@ -77,6 +77,10 @@
     },
     "program_parameters" :
     {
+      "cutadapt" :
+      {
+        "trim_params": "-a AGATCGGAAGAGC -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT --minimum-length=30"
+      },
       "kallisto" :
       {
         "bootstraps" : "100"
@@ -170,10 +174,6 @@
             "minimum_perc" : "0.1"
         }
       },
-      "cutadapt" :
-      {
-        "trim_params": "-a AGATCGGAAGAGC -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT --minimum-length=30"
-      },
       "macs2" :
       {
         "gsize" : "2.0e9"
@@ -189,6 +189,5 @@
     "deepTools_dir" : "/miniconda3/envs/py27/bin",
     "HTSeq_dir" : "/miniconda3/envs/py27/bin",
     "cutadapt_dir" : "/miniconda3/envs/snakemake/bin",
-    "DEXSeq_dir" : "/home/skurscheid/R/x86_64-unknown-linux-gnu-library/DEXSeq/python_scripts/",
     "picard" : "/bin/picard.jar"
 }
